@@ -41,6 +41,30 @@ Initialize creates a commit script by merging from all GIT commits any files wit
 
 Visial Studio 2017
 
+## GIT Commands
+
+List files changed in a commit, note this doesn't work on first commit
+
+```
+git diff-tree --no-commit-id --name-only -r <commit id>
+```
+
+List all commit ids
+
+```
+git rev-list HEAD
+```
+
+Checkout files in a commit and then get back to master
+
+```
+git checkout <commit id>
+git checkout master
+
+git read-tree -um <commit id>  *** is this right?
+git read-tree -um master
+```
+
 ## Notes and Links
 
 Get started with elastic database tools; 
@@ -55,3 +79,8 @@ https://blogs.msdn.microsoft.com/benjaminperkins/2017/04/04/setting-up-and-using
 Approved Verbs for Windows PowerShell Commands;
 https://msdn.microsoft.com/en-us/library/ms714428(v=vs.85).aspx
 
+SQL Parser;
+https://sqlblogcasts.com/blogs/sqlandthelike/archive/2012/03/13/parsing-t-sql-the-easy-way.aspx
+
+Replicate git checkout in plumbing commands;
+https://stackoverflow.com/questions/24921595/how-to-replicate-git-checkout-using-only-plumbing-commands
