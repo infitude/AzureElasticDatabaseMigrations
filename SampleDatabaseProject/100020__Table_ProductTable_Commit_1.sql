@@ -1,4 +1,4 @@
-﻿IF NOT EXISTS (SELECT name FROM sys.tables WHERE name = 'TestTable')
+﻿IF NOT EXISTS (SELECT name FROM sys.tables WHERE name = 'Product')
 BEGIN
 CREATE TABLE [dbo].[Product]
 (
