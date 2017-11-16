@@ -2,11 +2,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{b06b842c-f23b-434e-89b0-fc514270ca0d}</ProjectGuid>
+    <ProjectGuid>6CAFC0C6-A428-4d30-A9F9-700E829FEA51</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>MyApplication</RootNamespace>
     <AssemblyName>MyApplication</AssemblyName>
-    <Name>SampleDatabaseProject</Name>
+    <Name>PowerShellModule</Name>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -25,14 +25,11 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Compile Include="Script.ps1" />
-    <Compile Include="SqlParser.ps1" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="100010__Table_TestTable_Commit_1.sql" />
-    <Content Include="100020__Table_ProductTable_Commit_1.sql" />
-    <Content Include="200010__Table_AlterTest_Commit_2.sql" />
+    <Compile Include="PowerShellModule.psd1" />
+    <Compile Include="PowerShellModule.psm1" />
+    <Compile Include="PowerShellModule.tests.ps1" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="Build" />

@@ -103,31 +103,27 @@ $initialCommit
 # checkout the initial commit (using plumbing commands)
 git read-tree -um $initialCommit
 
+$sqlBatchUnion = ''
+
 # for all the files, parse them and see if they create
 Get-ChildItem  | % { 
 		$t = Get-Content $_.FullName		
 
+		# parse the SQL batch and see if it contains a create table statement
 		$thisSqlBatch = parse-sql $t 
-		#parse-sql $t 
 
-		#$thisSqlBatch | Get-Member
+		# warn for create table sql baches
 		if ($thisSqlBatch.hasCreateTable -eq $true) {
 				$message =  'WARNING - SQL CREATE TABLE statement in {0}' -f $_.FullName
 				Write-Debug $message
 			}
 
-		#		$thisTokens = parse-sql $t 
-		## see file and tokens in debug
-		#Write-Debug $_.FullName
-		#Write-Debug $thisTokens.Count
-		#foreach ($token in $thisTokens) {
-		#	$message = 'token {0}  has value {1}' -f $token[0], $token[1]
-		#	Write-Debug $message
-		#}
-		#$thisTokens -contains 'TOKEN_CREATE'
-		#$thisTokens | ?{$_.[0] -eq "TOKEN_CREATE"} | %{$_.[1]}
-		
+		# append the sql to the union of batches
+		$sqlBatchUnion += $t
+		$sqlBatchUnion += "`n"
 	}
+
+	$sqlBatchUnion
 
 # chckout master
 git read-tree -um master
