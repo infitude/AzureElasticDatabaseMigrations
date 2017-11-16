@@ -6,7 +6,7 @@ Manage the development and deployment lifecycle of Azure Elastic Database Migrat
 # One time setup
     # Download the repository
     # Unblock the zip
-    # Extract the PSStackExchange folder to a module path (e.g. $env:USERPROFILE\Documents\WindowsPowerShell\Modules\)
+    # Extract the AzureElasticDatabaseMigrations folder to a module path (e.g. $env:USERPROFILE\Documents\WindowsPowerShell\Modules\)
 
     #Simple alternative, if you have PowerShell 5, or the PowerShellGet module:
         Install-Module AzureElasticDatabaseMigrations
