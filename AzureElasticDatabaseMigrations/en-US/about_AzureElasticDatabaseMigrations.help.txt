@@ -1,0 +1,11 @@
+PSTOPIC
+    about_AzureElasticDatabaseMigrations
+
+SHORT DESCRIPTION
+    AzureElasticDatabaseMigrations allows you to ...
+
+LONG DESCRIPTION
+    AzureElasticDatabaseMigrations allows you to ...
+
+DETAILED DESCRIPTION
+    AzureElasticDatabaseMigrations detailed description
