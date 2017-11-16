@@ -1,109 +1,24 @@
 Function Invoke-Migrations {
     <#
     .SYNOPSIS
-        Get questions from StackExchange
+        Invoke a SQL database migration
 
     .DESCRIPTION
-        Get questions from StackExchange
+        Invoke a SQL database migration
 
-    .PARAMETER Site
-        StackExchange site to get questions from. Default is stackoverflow
-
-    .PARAMETER Tag
-        Search by tag
-
-        Limited to 5 tags
-
-    .PARAMETER Unanswered
-        Return only questions not marked as answered
-
-    .PARAMETER NoAnswers
-        Return only questions with no answers
-
-    .PARAMETER Featured
-        Return only featured questions
-
-    .PARAMETER FromDate
-        Return only questions posted after this date
-
-    .PARAMETER ToDate
-        Return only questions posted before this date
-
-    .PARAMETER Order
-        Ascending or Descending
-
-    .PARAMETER Sort
-        Sorting method:
-            activity
-            creation
-            votes
-            hot
-            week
-            month
-
-    .PARAMETER Uri
-        The base Uri for the StackExchange API.
-
-        Default: https://api.stackexchange.com
-
-    .PARAMETER Version
-        The StackExchange API version to use.
-
-    .PARAMETER PageSize
-        Items to retrieve per query. Defaults to 30
-
-    .PARAMETER MaxResults
-        Maximum number of items to return. Defaults to 100
-
-        Specify $null or 0 to set this to the maximum value
-
-    .PARAMETER Body
-        Hash table with query options for specific object
-
-        These don't appear to be case sensitive
-
-        Example for recent powershell activity:
-            -Body @{
-                site  =  'stackoverflow'
-                tagged = 'powershell'
-                order =  'desc'
-                sort =   'activity'
-            }
+    .PARAMETER ModeElastic
+        Run the migration against a Azure Elastic Database
 
     .EXAMPLE
         Invoke-Migrations
 
-        # List sites on StackExchange
-
-    .EXAMPLE
-        Get-SEQuestion -UnAnswered -Tag PowerShell -FromDate $(Get-Date).AddDays(-1) -Site ServerFault
-
-        # Get unanswered questions...
-        #    Tagged PowerShell...
-        #    From the past day...
-        #    From the ServerFault site
-
-    .EXAMPLE
-        Get-SEQuestion -Featured -Tag PowerShell -Site StackOverflow -MaxResults 20
-
-        # Get featured questions...
-        #    Tagged PowerShell...
-        #    From the stackoverflow site
-        #    Limited to 20 items
+        # Creates SQL script from files in the current folder
 
     .FUNCTIONALITY
-        StackExchange
+        Invoke-Migrations
 
     .LINK
-        http://ramblingcookiemonster.github.io/Building-A-PowerShell-Module
-
-    .LINK
-        https://github.com/RamblingCookieMonster/PSStackExchange
-
-    .LINK
-        https://api.stackexchange.com/docs/questions
-
-
+        https://github.com/infitude/AzureElasticDatabaseMigrations
 
     #>
     [cmdletbinding()]

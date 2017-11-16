@@ -24,11 +24,6 @@ Manage the development and deployment lifecycle of Azure Elastic Database Migrat
     Get-Help Invoke-Migrations -Full
     Get-Help about_AzureElasticDatabaseMigrations
 
-
-# turn on verbose and/or debug output;
-    $VerbosePreference = "continue"
-    $DebugPreference = "continue"
-
 ```
 
 
@@ -66,11 +61,25 @@ Note: Any files with '__clean' in the filename is ignored by the migrate command
 
 Initialize creates a commit script by merging from all GIT commits any files with __clean in the filename.  They will be merged in filename order and applied to the database.  The log table is truncated.
 
-## Installation
+## Testing
+
+Tests are run using `Pester`, an example cmd line to execute a test is : 
+
+```
+Invoke-Pester -Script "c:\Temp\PSTest\test\AzureElasticDatabaseMigrations.Tests.ps1" -TestName 'Sql Integration Tests'
+```
 
 ## Development
 
-Visial Studio 2017
+The IDE used to develop this solution is Visial Studio Code
+
+To turn on debugging (or control verbose messages) ;
+```
+# turn on verbose and/or debug output;
+    $VerbosePreference = "continue"
+    $DebugPreference = "continue"
+
+```
 
 ## GIT Commands
 

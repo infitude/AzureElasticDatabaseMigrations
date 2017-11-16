@@ -1,5 +1,3 @@
-# example cmd line : Invoke-Pester -Script "c:\Temp\PSTest\test\AzureElasticDatabaseMigrations.Tests.ps1" -TestName 'Sql Integration Tests'
-
 $ModuleManifestName = 'AzureElasticDatabaseMigrations.psd1'
 $ModuleManifestPath = "$PSScriptRoot\..\AzureElasticDatabaseMigrations\$ModuleManifestName"
 $SampleDatabaseProjectPath = "$PSScriptRoot\SampleDatabaseProject"
