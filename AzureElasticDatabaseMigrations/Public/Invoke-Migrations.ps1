@@ -19,22 +19,21 @@ Function Invoke-Migrations {
 
     .LINK
         https://github.com/infitude/AzureElasticDatabaseMigrations
-
     #>
+
     [cmdletbinding()]
     param(
+        [String]$ConnectionString,
         [switch]$ModeElastic
     )
 
-        [string]$Object = "local"
-        if     ($ModeElastic) { $Object = "azure" }
+    [string]$Object = "local"
+    if     ($ModeElastic) { $Object = "azure" }
 
-        Write-Debug ( "Running $($MyInvocation.MyCommand).`n" +
-                    "PSBoundParameters:`n$($PSBoundParameters | Format-List | Out-String)" )
+    Write-Debug ( "Running $($MyInvocation.MyCommand).`n" +
+                "PSBoundParameters:`n$($PSBoundParameters | Format-List | Out-String)" )
 
-
-    Try
-    {
+    Try {
 
          # get an array of commit ids
          [array]$revlist = git rev-list HEAD
@@ -69,6 +68,10 @@ Function Invoke-Migrations {
         # chckout master
         git read-tree -um master
 
+
+        #sqlcmd -S "DEV-DB-01" -i $SQLScriptsPath | Out-File -Append -filepath $SQLScriptsLogPath
+        #Invoke-Sqlcmd -Query "SELECT GETDATE() AS TimeOfQuery;" -ServerInstance "MyComputer\MyInstance" 
+        
         return   $sqlBatchUnion
 
     }

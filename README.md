@@ -79,9 +79,34 @@ To turn on debugging (or control verbose messages) ;
     $VerbosePreference = "continue"
     $DebugPreference = "continue"
 
+# Discover Path to PS Module
+(Get-Module -ListAvailable Posh*).path
+
+#Get Verison of Powershell
+$PSVersionTable.PSVersion
+
+# The path of the shell that the terminal uses on Windows. When using shells shipped with Windows (cmd, PowerShell or Bash on Ubuntu).
+#  "terminal.integrated.shell.windows": "C:\\WINDOWS\\Sysnative\\WindowsPowerShell\\v1.0\\powershell.exe",
+
+# Profile config file;
+$profile.CurrentUserCurrentHost
+
+# PSModulePath =
+# %ProgramFiles(x86)%\WindowsPowerShell\Modules\Pester\3.4.4;
+# %ProgramFiles(x86)%\WindowsPowerShell\Modules;
+# %SystemRoot%\system32\WindowsPowerShell\v1.0\Modules;
+# C:\Program Files (x86)\Microsoft SQL Server\130\Tools\PowerShell\Modules\;
+# C:\Program Files\WindowsPowerShell\Modules\;
+# C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ResourceManager\AzureResourceManager\;
+# C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\;
+# C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\Storage\;
 ```
 
 ## GIT Commands
+
+Porcelan commands;
+git commit -a -m "comment"
+git push origin master
 
 List files changed in a commit, note this doesn't work on first commit
 
